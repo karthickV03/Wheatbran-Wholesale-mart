@@ -1,0 +1,51 @@
+{% extends 'store/layouts/main.html' %}
+
+
+{% block content %}
+{% include 'store/inc/slider.html' %}
+<br>
+<center><h1>Welcome to Wheat brano</h1></center>
+<div class="container my-5">
+      <div class="row">
+            <div class="col-md-12">
+                  <h3>Trending Products</h3>
+                  <hr>
+                  <div class="row">
+                        {% for item in trending_products %}
+                        <div class="col-md-2">
+                              <div class="card">
+                                    <a href="{% url 'productview' item.category.slug item.slug %}">
+                                         <div class="card-body">
+                                               <div class="category-image">
+                                                    <img src="{{ item.product_image.url}}" alt="Product image" class="w-100" style="width:200px;height:150px;" />
+                                               </div>
+                                               <br>
+                                               <h4 class="text-center"> {{item.name}} </h4>
+                                               <h5 class="text-center text-dark"> {{item.selling_price}} </h5>
+
+                                  </a>
+                              </div>
+                        </div>
+                  </div>
+                  {% endfor %}
+                  </div>
+            </div>
+      </div>
+</div>
+
+<footer>
+      <div class="footer0">
+            <h1>Wheat brano...</h1>
+      </div>
+      <div class="footer2">
+            <div class="aboutus">
+                  <div class="heading">About us</div>
+                  <div class="div">
+                        <p> </p>
+                  </div>
+            </div>
+      </div>
+      <div class="footer3">Copyright © <h4>Wheat brano...</h4> 2022-2030</div>
+</footer>
+
+{% endblock content %}
